@@ -1,6 +1,6 @@
 // Asynchronous way
 
-boilWater(3000);
+boilWater(5000);
 console.log("chop carrots");
 console.log("chop onion");
 
