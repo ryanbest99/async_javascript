@@ -1,15 +1,12 @@
-console.log("I'm first");
-console.log("I'm second");
-console.log("I'm third");
+// Asynchronous way
 
-console.log("I'm first");
-boilingWater();
-console.log("I'm third");
+boilWater(3000);
+console.log("chop carrots");
+console.log("chop onion");
 
-function boilingWater() {
+function boilWater(time) {
   console.log("boiling...");
-  for (i = 0; i < 1000; i++) {
-    console.log("still not done...");
-  }
-  console.log("Done.");
+  setTimeout(() => {
+    console.log("Done");
+  }, time);
 }
