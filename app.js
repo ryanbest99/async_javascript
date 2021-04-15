@@ -57,6 +57,8 @@ console.log("Hello");
 
 //Promises
 
+/*
+
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
 const three = document.querySelector(".three");
@@ -83,3 +85,33 @@ promise
   .catch(function (err) {
     console.log(err);
   });
+
+  */
+
+// Reject Example
+
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const btn = document.querySelector(".btn");
+const container = document.querySelector(".img-container");
+const url = "https://source.unsplash.com/random>";
+
+btn.addEventListener("click", function () {
+  loadImage(url)
+    .then((data) => container.appendChild(data))
+    .catch((err) => console.log(err));
+});
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.addEventListener("load", () => {
+      resolve(img);
+    });
+    img.addEventListener("error", () => {
+      reject(new Error(`Failed to load image from the source: ${url}`));
+    });
+    img.src = url;
+  });
+}
