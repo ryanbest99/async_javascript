@@ -118,7 +118,6 @@ function loadImage(url) {
 }
 */
 
-
 // Promises - Dom Example
 /*
 const one = document.querySelector(".one");
@@ -147,12 +146,37 @@ function addColor(time, element, color) {
 }
 */
 
-
 // Async await
-async function someFunction(){
-  await
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", async () => {
+  const result = await displayColor();
+  console.log(result);
+});
+
+async function displayColor() {
+  try {
+    await addColor(1000, one, "red");
+    await addColor(1000, two, "green");
+    await addColor(1000, three, "blue");
+  } catch (error) {
+    console.log(error);
+  }
+  return "hello";
 }
 
-const otherFunction = async() => {
-  await
+function addColor(time, element, color) {
+  return new Promise((resolve, reject) => {
+    if (element) {
+      setTimeout(() => {
+        element.style.color = color;
+        resolve();
+      }, time);
+    } else {
+      reject(new Error(`There is no such element ${element}`));
+    }
+  });
 }
