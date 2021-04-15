@@ -118,8 +118,9 @@ function loadImage(url) {
 }
 */
 
-// Promises - Dom Example
 
+// Promises - Dom Example
+/*
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
 const three = document.querySelector(".three");
@@ -143,4 +144,15 @@ function addColor(time, element, color) {
       reject(new Error(`There is no such element ${element}`));
     }
   });
+}
+*/
+
+
+// Async await
+async function someFunction(){
+  await
+}
+
+const otherFunction = async() => {
+  await
 }
