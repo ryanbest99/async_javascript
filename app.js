@@ -1,12 +1,52 @@
 // Asynchronous way
 
-boilWater(5000);
-console.log("chop carrots");
-console.log("chop onion");
+// Boil Water 10seconds
+// Chop carrots
+// add carrots and boil for 5seconds
+// chop onion
+// add onion and boil for 5seconds
 
-function boilWater(time) {
-  console.log("boiling...");
-  setTimeout(() => {
-    console.log("Done");
-  }, time);
+/*
+
+boilWater();
+console.log("chop carrots");
+
+function boilWater() {
+  console.log("Boiling...");
+  setTimeout(function () {
+    console.log("Boiling Done");
+    console.log("Add carots");
+    setTimeout(function () {
+      console.log("Carrots Done");
+      console.log("Add onion");
+      setTimeout(function () {
+        console.log("Onions Done");
+      }, 3000);
+    }, 3000);
+    console.log("Chop onion");
+  }, 3000);
 }
+
+*/
+
+// callback hell - Dom Example
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function () {
+  console.log("Clicked");
+  setTimeout(function () {
+    one.style.color = "red";
+    setTimeout(function () {
+      two.style.color = "blue";
+      setTimeout(function () {
+        three.style.color = "green";
+      }, 1000);
+    }, 1000);
+  }, 1000);
+});
+
+console.log("Hello");
