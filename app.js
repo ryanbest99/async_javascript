@@ -90,6 +90,7 @@ promise
 
 // Reject Example
 
+/*
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
 const three = document.querySelector(".three");
@@ -113,5 +114,33 @@ function loadImage(url) {
       reject(new Error(`Failed to load image from the source: ${url}`));
     });
     img.src = url;
+  });
+}
+*/
+
+// Promises - Dom Example
+
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function () {
+  addColor(1000, one, "red")
+    .then(() => addColor(2000, two, "green"))
+    .then(() => addColor(2000, three, "blue"))
+    .catch((err) => console.log(err));
+});
+
+function addColor(time, element, color) {
+  return new Promise((resolve, reject) => {
+    if (element) {
+      setTimeout(() => {
+        element.style.color = color;
+        resolve();
+      }, time);
+    } else {
+      reject(new Error(`There is no such element ${element}`));
+    }
   });
 }
