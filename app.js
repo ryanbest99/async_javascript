@@ -30,6 +30,8 @@ function boilWater() {
 */
 
 // callback hell - Dom Example
+
+/*
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
 const three = document.querySelector(".three");
@@ -50,3 +52,34 @@ btn.addEventListener("click", function () {
 });
 
 console.log("Hello");
+
+*/
+
+//Promises
+
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function () {});
+
+const promise = new Promise(function (resolve, reject) {
+  let value = false;
+  if (value) {
+    resolve("The value is true");
+  } else {
+    reject("The value is false");
+  }
+});
+
+// console.log(promise);
+
+promise
+  .then(function (value) {
+    console.log(value);
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
